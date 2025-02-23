@@ -15,10 +15,11 @@
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
 		"@sveltejs/adapter-node": "^5.2.11",
-		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/kit": "^2.17.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@tailwindcss/typography": "^0.5.16",
 		"autoprefixer": "^10.4.20",
+		"bits-ui": "^0.22.0",
 		"clsx": "^2.1.1",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
@@ -27,10 +28,15 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.10",
-		"svelte": "^5.0.0",
+		"svelte": "^5.20.2",
 		"tailwind-merge": "^3.0.2",
 		"tailwind-variants": "^0.3.1",
 		"tailwindcss": "^3.4.17",
+		"tailwindcss-animate": "^1.0.7",
 		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"style-to-object": "^1.0.8",
+		"svelte-radix": "^2.0.1"
 	}
 }
