@@ -3,5 +3,7 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/comprehend/projects/page": "app/comprehend/projects/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/console/home/page": "app/console/home/page.js"
+  "/console/home/page": "app/console/home/page.js",
+  "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
+  "/comprehend/page": "app/comprehend/page.js"
 }

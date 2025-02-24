@@ -1,7 +1,7 @@
 /**
  * Navigation context types
  */
-export type NavigationContext = "SERVICE" | "PROJECT";
+export type NavigationContext = "SERVICE" | "PROJECT" | "NONE";
 
 /**
  * Breadcrumb segment interface
@@ -16,40 +16,60 @@ export interface BreadcrumbSegment {
  * Detect navigation context based on current route
  */
 export function detectNavigationContext(pathname: string): NavigationContext {
-  if (pathname.includes("/comprehend/projects/") && pathname.split("/").length > 3) {
+  if (pathname.startsWith("/comprehend/projects/")) {
     return "PROJECT";
+  } else if (pathname.startsWith("/comprehend/")) {
+    return "SERVICE";
   }
-  return "SERVICE";
+  return "NONE";
 }
 
 /**
  * Parse current path into breadcrumb segments
  */
 export function parsePathToSegments(pathname: string): BreadcrumbSegment[] {
-  const segments = pathname.split("/").filter(Boolean);
-  const breadcrumbs: BreadcrumbSegment[] = [];
+  if (!pathname) return [];
+
+  // Split the path into segments and remove empty strings
+  const pathParts = pathname.split("/").filter(Boolean);
+  const segments: BreadcrumbSegment[] = [];
   let currentPath = "";
 
-  // Add root
-  breadcrumbs.push({
-    label: "OV3R",
-    url: "/",
-    isCurrent: segments.length === 0
-  });
+  // Build up the segments
+  pathParts.forEach((part, index) => {
+    currentPath += `/${part}`;
 
-  // Build segments
-  segments.forEach((segment, index) => {
-    currentPath += `/${segment}`;
+    // Format the label
+    let label = part.charAt(0).toUpperCase() + part.slice(1);
     
-    // Handle project ID segment
-    const label = segment.startsWith("[") ? "Project Name" : segment.charAt(0).toUpperCase() + segment.slice(1);
-    
-    breadcrumbs.push({
+    // Special cases for known paths
+    switch (part) {
+      case "comprehend":
+        label = "Comprehend";
+        break;
+      case "projects":
+        label = "Projects";
+        break;
+      case "conversations":
+        label = "Conversations";
+        break;
+      case "settings":
+        label = "Settings";
+        break;
+      case "integrations":
+        label = "Integrations";
+        break;
+      case "help":
+        label = "Help";
+        break;
+    }
+
+    segments.push({
       label,
       url: currentPath,
-      isCurrent: index === segments.length - 1
+      isCurrent: currentPath === pathname,
     });
   });
 
-  return breadcrumbs;
+  return segments;
 }
