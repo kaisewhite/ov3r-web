@@ -1,0 +1,50 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/comprehend/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/layout.js"
+    ],
+    "/comprehend/(routes)/projects/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(routes)/projects/page.js"
+    ],
+    "/comprehend/(service)/home/welcome/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(service)/home/welcome/page.js"
+    ],
+    "/comprehend/(routes)/projects/[id]/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(routes)/projects/[id]/layout.js"
+    ],
+    "/comprehend/(routes)/projects/[id]/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(routes)/projects/[id]/dashboard/page.js"
+    ],
+    "/comprehend/(routes)/projects/[id]/conversations/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(routes)/projects/[id]/conversations/page.js"
+    ],
+    "/comprehend/(routes)/projects/[id]/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/comprehend/(routes)/projects/[id]/settings/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ]
+  }
+}

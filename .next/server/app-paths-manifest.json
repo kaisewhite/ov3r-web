@@ -1,0 +1,9 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/comprehend/(routes)/projects/page": "app/comprehend/(routes)/projects/page.js",
+  "/comprehend/(service)/home/welcome/page": "app/comprehend/(service)/home/welcome/page.js",
+  "/comprehend/(routes)/projects/[id]/dashboard/page": "app/comprehend/(routes)/projects/[id]/dashboard/page.js",
+  "/comprehend/(routes)/projects/[id]/settings/page": "app/comprehend/(routes)/projects/[id]/settings/page.js",
+  "/comprehend/(routes)/projects/[id]/conversations/page": "app/comprehend/(routes)/projects/[id]/conversations/page.js"
+}
