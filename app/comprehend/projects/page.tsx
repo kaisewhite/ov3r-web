@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Table,
@@ -11,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ChevronRight } from "lucide-react";
+import { CreateProjectDialog } from "./components/create-project-dialog";
 
 // Mock data for demonstration
 const mockProjects = [
@@ -37,12 +37,7 @@ export default function ProjectsPage() {
     <div className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-semibold">Projects</h1>
-        <Link
-          href="/comprehend/projects/new"
-          className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-        >
-          Create Project
-        </Link>
+        <CreateProjectDialog />
       </div>
 
       <div className="rounded-md border">
@@ -61,7 +56,7 @@ export default function ProjectsPage() {
               <TableRow
                 key={project.id}
                 className="cursor-pointer hover:bg-muted/50"
-                onClick={() => router.push(`/comprehend/projects/${project.id}/dashboard`)}
+                onClick={() => router.push(`/comprehend/projects/${encodeURIComponent(project.id)}/dashboard`)}
               >
                 <TableCell className="font-medium">{project.name}</TableCell>
                 <TableCell className="text-muted-foreground">

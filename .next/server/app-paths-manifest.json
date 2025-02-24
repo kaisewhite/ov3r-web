@@ -3,5 +3,10 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/comprehend/page": "app/comprehend/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js"
+  "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
+  "/comprehend/projects/[projectId]/chats/page": "app/comprehend/projects/[projectId]/chats/page.js",
+  "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js",
+  "/comprehend/projects/[projectId]/knowledge-base/page": "app/comprehend/projects/[projectId]/knowledge-base/page.js",
+  "/comprehend/projects/[projectId]/knowledge-base/new/page": "app/comprehend/projects/[projectId]/knowledge-base/new/page.js",
+  "/console/home/page": "app/console/home/page.js"
 }
