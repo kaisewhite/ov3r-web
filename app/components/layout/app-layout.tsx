@@ -14,32 +14,25 @@ interface AppLayoutProps {
 export function AppLayout({ children }: AppLayoutProps) {
   const pathname = usePathname();
   const context = detectNavigationContext(pathname);
-  
-  // Extract project ID from path if in project context
-  const projectId = context === "PROJECT" 
+  const projectId = context === "PROJECT" || context === "CHAT" 
     ? pathname.split("/")[3] 
-    : undefined;
+    : null;
 
   // Only show navigation elements for Comprehend service routes
   const showNav = pathname.startsWith("/comprehend");
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="flex flex-col h-screen">
       <GlobalHeader />
       {showNav && <Breadcrumb />}
-      <div className="flex-1 flex">
-        {showNav && (
-          context === "PROJECT" && projectId ? (
-            <ProjectSidebar projectId={projectId} />
-          ) : (
-            <ServiceSidebar />
-          )
-        )}
-        <main className="flex-1 overflow-auto">
-          <div className="container py-6">
+      <div className="flex-1 flex overflow-hidden">
+        {context === "SERVICE" && <ServiceSidebar />}
+        {context === "PROJECT" && projectId && <ProjectSidebar projectId={projectId} />}
+        <div className="flex-1 overflow-auto">
+          <div className="container py-6 px-8">
             {children}
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );
