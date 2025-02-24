@@ -2,7 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { ServiceSidebar } from "./components/service-sidebar";
+import { ServiceSidebar } from "../components/layout/service-sidebar";
 
 export default function ComprehendLayout({
   children,
@@ -10,12 +10,10 @@ export default function ComprehendLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  // Check if we're on any projects route
-  const isProjectsRoute = pathname.startsWith("/comprehend/projects");
-
-  // Don't show service sidebar on any projects routes
-  if (isProjectsRoute) {
-    return <>{children}</>;
+  
+  // Return just children (no service sidebar) for any route under /projects
+  if (pathname.includes("/projects")) {
+    return children;
   }
 
   return (
