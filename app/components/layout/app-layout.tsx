@@ -6,6 +6,7 @@ import { Breadcrumb } from "./breadcrumb";
 import { ServiceSidebar } from "./service-sidebar";
 import { ProjectSidebar } from "./project-sidebar";
 import { detectNavigationContext } from "@/app/lib/utils/navigation";
+import { cn } from "@/lib/utils";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -29,7 +30,10 @@ export function AppLayout({ children }: AppLayoutProps) {
         {context === "SERVICE" && <ServiceSidebar />}
         {context === "PROJECT" && projectId && <ProjectSidebar projectId={projectId} />}
         <div className="flex-1 overflow-auto">
-          <div className="container py-6 px-8">
+          <div className={cn(
+            "h-full",
+            pathname.includes("/chat") ? "" : "container py-6 px-8"
+          )}>
             {children}
           </div>
         </div>

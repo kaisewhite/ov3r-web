@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 
 // Mock data for demonstration
 const mockProjectData = {
-  "legal-research": {
+  "legal-Research": {
     name: "Legal Research Assistant",
     stats: {
       documents: 156,

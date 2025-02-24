@@ -142,13 +142,13 @@ function Breadcrumbs({ currentPath }) {
 
 1. User is at `/comprehend/projects` viewing the projects list
 2. User clicks on "Legal Research Assistant" project
-3. System navigates to `/comprehend/projects/legal-research-assistant/dashboard`
+3. System navigates to `/comprehend/projects/legal-Research-assistant/dashboard`
 4. Service sidebar is completely replaced by project sidebar
 5. Breadcrumb updates to "OV3R > Comprehend > Projects > Legal Research Assistant > Dashboard"
 
 ### Return to Projects Flow:
 
-1. User is in project view at `/comprehend/projects/legal-research-assistant/conversations`
+1. User is in project view at `/comprehend/projects/legal-Research-assistant/conversations`
 2. User clicks "Projects" in the breadcrumb
 3. System navigates to `/comprehend/projects`
 4. Project sidebar is completely replaced by service sidebar
