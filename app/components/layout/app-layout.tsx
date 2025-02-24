@@ -32,7 +32,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         <div className="flex-1 overflow-auto">
           <div className={cn(
             "h-full",
-            pathname.includes("/chat") ? "" : "container py-6 px-8"
+            pathname.includes("/chat") ? "h-[calc(100vh-6rem)]" : "container py-6 px-8"
           )}>
             {children}
           </div>
