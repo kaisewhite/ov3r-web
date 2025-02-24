@@ -1,37 +1,67 @@
 "use client";
 
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+import { Brain, Search, MessageSquare, Database } from "lucide-react";
+
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
+);
+
+const items = [
+  {
+    title: "Document Processing",
+    description: "Upload documents, crawl web content, and build comprehensive knowledge bases from various sources.",
+    header: <Skeleton />,
+    className: "md:col-span-2",
+    icon: <Database className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "AI-Powered Search",
+    description: "Use advanced natural language processing to find exactly what you need across your knowledge base.",
+    header: <Skeleton />,
+    className: "md:col-span-1",
+    icon: <Search className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "Interactive Chat",
+    description: "Engage with your data through an AI chatbot that understands context and provides accurate responses.",
+    header: <Skeleton />,
+    className: "md:col-span-1",
+    icon: <MessageSquare className="h-4 w-4 text-neutral-500" />,
+  },
+  {
+    title: "RAG-Based System",
+    description: "Leverage the power of Retrieval-Augmented Generation to provide accurate, context-aware responses from your data.",
+    header: <Skeleton />,
+    className: "md:col-span-2",
+    icon: <Brain className="h-4 w-4 text-neutral-500" />,
+  },
+];
+
 export default function ComprehendPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-8.5rem)] max-w-3xl mx-auto text-center">
-      <h1 className="text-4xl font-semibold mb-6">
-        Comprehend
-      </h1>
-      <p className="text-lg text-muted-foreground mb-8">
-        A powerful RAG-based system for building custom knowledge bases with AI-powered search and chat capabilities.
-      </p>
-      <div className="grid gap-6 text-left w-full">
-        <Feature
-          title="Document Processing"
-          description="Upload documents, crawl web content, and build comprehensive knowledge bases from various sources."
-        />
-        <Feature
-          title="AI-Powered Search"
-          description="Use advanced natural language processing to find exactly what you need across your knowledge base."
-        />
-        <Feature
-          title="Interactive Chat"
-          description="Engage with your data through an AI chatbot that understands context and provides accurate responses."
-        />
+    <div className="max-w-5xl mx-auto px-4 pt-12">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-semibold mb-6">
+          Comprehend
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          A powerful RAG-based system for building custom knowledge bases with AI-powered search and chat capabilities.
+        </p>
       </div>
-    </div>
-  );
-}
-
-function Feature({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="p-6 rounded-lg border bg-card">
-      <h3 className="text-xl font-medium mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+      
+      <BentoGrid className="md:auto-rows-[20rem]">
+        {items.map((item, i) => (
+          <BentoGridItem
+            key={i}
+            title={item.title}
+            description={item.description}
+            header={item.header}
+            className={item.className}
+            icon={item.icon}
+          />
+        ))}
+      </BentoGrid>
     </div>
   );
 }
