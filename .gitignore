@@ -45,3 +45,4 @@ next-env.d.ts
 .next/server/app-paths-manifest.json
 .next/server/next-font-manifest.js
 .next/server/next-font-manifest.json
+.next/trace
