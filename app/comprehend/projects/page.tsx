@@ -15,7 +15,7 @@ import { CreateProjectDialog } from "./components/create-project-dialog";
 // Mock data for demonstration
 const mockProjects = [
   {
-    id: "legal-research",
+    id: "legal-Research",
     name: "Legal Research Assistant",
     description: "AI-powered legal document analysis and research tool",
     documents: 156,
