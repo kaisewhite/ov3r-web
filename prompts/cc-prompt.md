@@ -21,7 +21,7 @@ One of its flagship services is **Comprehend**, a sophisticated Retrieval-Augmen
 
 3. **Services**:
 
-   - **Comprehend**: A RAG-based service for intelligent web content processing, knowledge base creation, and AI-powered querying. To build the Comprehend service, refer to the `README.md` file in the `prompts/comprehend` folder in the OV3R repository. Inside this folder, you will find a README.md file that contains specific instructions for setting up, configuring, and running Comprehend. Follow the steps outlined in the README to ensure a successful build.
+   - **Comprehend**: A RAG-based service for intelligent web content processing, knowledge base creation, and AI-powered querying.
    - (Additional services can be added here as they are developed.)
 
 4. **Target Audience**:
@@ -33,103 +33,85 @@ One of its flagship services is **Comprehend**, a sophisticated Retrieval-Augmen
    - OV3R simplifies complex data processing and AI tasks, making them accessible to non-technical users while providing powerful customization options for developers.
    - It combines scalability, efficiency, and intelligence to deliver actionable insights from data.
 
-**Task**: You are tasked with designing the initial pages of the **ov3r**, a web application that will serve as the central hub for accessing and managing services within the OV3R ecosystem. The design should be clean, intuitive, and scalable, similar to the AWS Management Console. The first few pages should include a login page, a home dashboard, and a dedicated console for the **Comprehend** service. Additionally, create placeholders for three other services to establish the structure for future development.
-
-### **Requirements**
+### **Current Implementation - Comprehend Service**
 
 1. **Page Layout and Structure**:
 
-   - The app should follow a consistent layout with a **navigation bar at the top** for easy access to services and features.
-   - Each service (e.g., Comprehend) should have its own dedicated console with a nested routing structure.
+   - Consistent layout with responsive navigation
+   - Collapsible sidebar for desktop and mobile views
+   - Breadcrumb navigation for easy context tracking
+   - Dark mode support
 
 2. **Routing Structure**:
 
-   - **Login Page**: `console.ov3r.tech/console/login`
-   - **Home Dashboard**: `console.ov3r.tech/console/home`
-   - **Comprehend Console**:
-     - Welcome: `console.ov3r.tech/comprehend/home/welcome`
-     - Projects: `console.ov3r.tech/comprehend/projects`
-     - Project Conversations: `console.ov3r.tech/comprehend/projects/{project_id}/conversations`
-     - Project Knowledge Base - Data Sources: `console.ov3r.tech/comprehend/projects/{project_id}/knowledge-base/data-sources`
-     - Data Source Details: `console.ov3r.tech/comprehend/projects/{project_id}/knowledge-base/data-sources/{data_source_id}`
-     - Project Settings: `console.ov3r.tech/comprehend/projects/{project_id}/settings/general`
-   - **Placeholder Services**:
-     - Create placeholder links for three additional services (e.g., `ServiceA`, `ServiceB`, `ServiceC`) to establish the structure for future development.
+   - **Projects Overview**: `/comprehend/projects`
 
-3. **Design Guidelines**:
+     - Project listing and management
+     - Quick access to project dashboards
 
-   - **Navigation Bar**:
-     - Display at the top of every page.
-     - Include links to:
-       - Home Dashboard
-       - Comprehend
-       - Placeholder Services (ServiceA, ServiceB, ServiceC)
-       - User Profile/Logout
-   - **Home Dashboard**:
-     - Display a simple placeholder with the text "Dashboard" in the center of the page.
-     - This page will eventually contain widgets and metrics relevant to the user’s activity across services.
-   - **Comprehend Console**:
-     - Use a nested layout with a sidebar for navigation within the Comprehend service.
-     - Sidebar links should include:
-       - Welcome
-       - Projects
-       - Settings
-     - The main content area should dynamically display the relevant page based on the route.
+   - **Project Specific Routes** (`/comprehend/projects/{project_id}/`):
+     - **Dashboard**: `/dashboard` - Project metrics and overview
+     - **Conversations**: `/conversations` - Chat interactions
+     - **Settings**: `/settings` - Configuration
+     - **Integrations**:
+       - GitHub: `/github`
+       - API: `/api`
+     - **Help**: `/help`
 
-4. **Placeholder Services**:
-   - Create placeholder pages for three additional services (e.g., `ServiceA`, `ServiceB`, `ServiceC`).
-   - Each service should have a basic structure similar to Comprehend, with a welcome page and placeholder links for future features.
+3. **Navigation Features**:
 
-### **Example Layout**
+   - **Desktop Sidebar**:
 
-1. **Login Page**:
+     - Hover-based expansion
+     - Collapsible sections for different feature groups
+     - Icon-only and expanded states
 
-   - Simple login form with fields for email and one-time-passcode.
-   - "Sign In" button
+   - **Mobile Navigation**:
+     - Full-screen menu
+     - Touch-friendly interface
+     - Animated transitions
 
-2. **Home Dashboard**:
+4. **Project Components**:
 
-   - Navigation bar at the top with links to Home, Comprehend, ServiceA, ServiceB, ServiceC, and User Profile/Logout.
-   - Center of the page displays "Dashboard" as a placeholder.
+   - **Sidebar Groups**:
 
-3. **Comprehend Console**:
+     - Chatbot features (Dashboard, Conversations, Settings)
+     - Integrations (GitHub, API)
+     - Help Documentation
 
-   - Navigation bar at the top (consistent with the Home Dashboard).
-   - Sidebar on the left with links to:
-     - Welcome
-     - Projects
-     - Settings
-   - Main content area displays:
-     - Welcome message on `/comprehend/home/welcome`.
-     - List of projects on `/comprehend/projects`.
-     - Project-specific pages (e.g., conversations, knowledge base, settings) under `/comprehend/projects/{project_id}/`.
+   - **Header**:
+     - Breadcrumb navigation
+     - Project context
+     - Navigation controls
 
-4. **Placeholder Services**:
-   - Each service (ServiceA, ServiceB, ServiceC) has a welcome page and placeholder links for future features.
-   - Example: `console.ov3r.tech/servicea/home/welcome`.
+5. **Technical Stack**:
+   - Next.js 15.0.3
+   - TypeScript
+   - Framer Motion for animations
+   - Tailwind CSS for styling
+   - Component-based architecture
 
-## Best Practices
+### **Best Practices**
 
-### Content Quality
+1. **Content Quality**:
 
-- Validate input content before processing
-- Handle edge cases (empty content, invalid markup)
-- Preserve original formatting where meaningful
-- Clean and normalize text appropriately
+   - Validate input content before processing
+   - Handle edge cases (empty content, invalid markup)
+   - Preserve original formatting where meaningful
+   - Clean and normalize text appropriately
 
-### Performance
+2. **Performance**:
 
-- Implement batch processing for large documents
-- Use async/await for concurrent operations
-- Monitor and optimize resource usage
-- Cache frequently accessed content
+   - Implement batch processing for large documents
+   - Use async/await for concurrent operations
+   - Monitor and optimize resource usage
+   - Cache frequently accessed content
 
-### Error Handling
-
-- Implement robust error handling at each step
-- Log errors with appropriate context
-- Provide meaningful error messages
-- Allow for graceful degradation
+3. **Error Handling**:
+   - Implement robust error handling at each step
+   - Log errors with appropriate context
+   - Provide meaningful error messages
+   - Allow for graceful degradation
 
 This file is an instruction and must not be edited.
 
