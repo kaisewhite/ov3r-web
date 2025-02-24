@@ -95,23 +95,24 @@ One of its flagship services is **Comprehend**, a sophisticated Retrieval-Augmen
 
 1. **Content Quality**:
 
-   - Validate input content before processing
-   - Handle edge cases (empty content, invalid markup)
-   - Preserve original formatting where meaningful
-   - Clean and normalize text appropriately
+- Validate input content before processing
+- Handle edge cases (empty content, invalid markup)
+- Preserve original formatting where meaningful
+- Clean and normalize text appropriately
 
 2. **Performance**:
 
-   - Implement batch processing for large documents
-   - Use async/await for concurrent operations
-   - Monitor and optimize resource usage
-   - Cache frequently accessed content
+- Implement batch processing for large documents
+- Use async/await for concurrent operations
+- Monitor and optimize resource usage
+- Cache frequently accessed content
 
 3. **Error Handling**:
-   - Implement robust error handling at each step
-   - Log errors with appropriate context
-   - Provide meaningful error messages
-   - Allow for graceful degradation
+
+- Implement robust error handling at each step
+- Log errors with appropriate context
+- Provide meaningful error messages
+- Allow for graceful degradation
 
 This file is an instruction and must not be edited.
 
