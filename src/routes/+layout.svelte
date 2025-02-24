@@ -4,6 +4,7 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	let servicesOpen = false;
 	let accountOpen = false;
@@ -18,37 +19,37 @@
 		{
 			name: 'Comprehend',
 			description: 'Advanced natural language processing and text analysis',
-			path: '/comprehend'
+			path: '/comprehend/home/welcome'
 		},
 		{
 			name: 'Analytics',
 			description: 'Real-time data insights and visualization platform',
-			path: '/analytics'
+			path: '/analytics/home/welcome'
 		},
 		{
 			name: 'Security',
 			description: 'Enterprise-grade security and compliance tools',
-			path: '/security'
+			path: '/security/home/welcome'
 		},
 		{
 			name: 'Storage',
 			description: 'Scalable cloud storage and file management',
-			path: '/storage'
+			path: '/storage/home/welcome'
 		},
 		{
 			name: 'Machine Learning',
 			description: 'Custom AI models and automated learning pipelines',
-			path: '/ml'
+			path: '/ml/home/welcome'
 		},
 		{
 			name: 'Integration',
 			description: 'API management and third-party integrations',
-			path: '/integration'
+			path: '/integration/home/welcome'
 		},
 		{
 			name: 'Monitoring',
 			description: 'System monitoring and performance tracking',
-			path: '/monitoring'
+			path: '/monitoring/home/welcome'
 		}
 	];
 
@@ -177,6 +178,7 @@
 
 						<div 
 							class="dropdown-content absolute left-0 w-[600px] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+							id="services-dropdown"
 						>
 							<div class="p-4">
 								<div class="mb-4 relative">
@@ -198,14 +200,17 @@
 								</div>
 								<div class="services-grid" role="menu" aria-orientation="vertical">
 									{#each filteredServices as service}
-										<a
-											href={service.path}
-											class="block p-3 hover:bg-gray-100 rounded-md"
+										<button
+											on:click={() => {
+												goto(service.path);
+												servicesOpen = false;
+											}}
+											class="block p-3 hover:bg-gray-100 rounded-md text-left w-full"
 											role="menuitem"
 										>
 											<div class="text-sm font-medium text-gray-900">{service.name}</div>
 											<div class="text-sm text-gray-500">{service.description}</div>
-										</a>
+										</button>
 									{/each}
 									{#if filteredServices.length === 0}
 										<div class="col-span-2 text-center py-4 text-gray-500">
@@ -236,12 +241,12 @@
 						<div class="py-1" role="menu" aria-orientation="vertical">
 							<div class="px-4 py-2 text-sm text-gray-500">My Account</div>
 							<div class="border-t border-gray-100"></div>
-							<a href="/console/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Profile</a>
-							<a href="/console/billing" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Billing</a>
-							<a href="/console/team" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Team</a>
-							<a href="/console/subscription" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Subscription</a>
+							<a href="/console/profile" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Profile</a>
+							<a href="/console/billing" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Billing</a>
+							<a href="/console/team" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Team</a>
+							<a href="/console/subscription" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Subscription</a>
 							<div class="border-t border-gray-100"></div>
-							<a href="/console/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</a>
+							<a href="/console/login" class="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100" role="menuitem">Logout</a>
 						</div>
 					</div>
 				</div>

@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+
 	// Mock data for demonstration
 	const projects = [
 		{
@@ -16,6 +18,16 @@
 			status: 'Processing'
 		}
 	];
+
+	function handleEdit(projectId: string) {
+		// TODO: Implement edit functionality
+		console.log('Edit project:', projectId);
+	}
+
+	function handleDelete(projectId: string) {
+		// TODO: Implement delete functionality
+		console.log('Delete project:', projectId);
+	}
 </script>
 
 <div class="py-6 px-4 sm:px-6 lg:px-8">
@@ -30,7 +42,7 @@
 			<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
 				<button
 					type="button"
-					class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+					class="inline-flex items-center justify-center rounded-md border border-transparent bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:w-auto"
 				>
 					Create Project
 				</button>
@@ -53,7 +65,7 @@
 						<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
 							Status
 						</th>
-						<th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+						<th scope="col" class="relative py-3.5 px-3 w-20">
 							<span class="sr-only">Actions</span>
 						</th>
 					</tr>
@@ -69,10 +81,18 @@
 							<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{project.description}</td>
 							<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{project.createdAt}</td>
 							<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{project.status}</td>
-							<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-								<a href="/comprehend/projects/{project.id}/settings/general" class="text-indigo-600 hover:text-indigo-900">
-									Settings
-								</a>
+							<td class="whitespace-nowrap px-3 py-4 text-center">
+								<DropdownMenu.Root>
+									<DropdownMenu.Trigger class="text-2xl text-gray-500 hover:text-gray-700">&hellip;</DropdownMenu.Trigger>
+									<DropdownMenu.Content>
+										<DropdownMenu.Item on:click={() => handleEdit(project.id)} class="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-100">
+											Edit
+										</DropdownMenu.Item>
+										<DropdownMenu.Item on:click={() => handleDelete(project.id)} class="flex items-center px-3 py-2 text-sm text-red-600 hover:bg-gray-100">
+											Delete
+										</DropdownMenu.Item>
+									</DropdownMenu.Content>
+								</DropdownMenu.Root>
 							</td>
 						</tr>
 					{/each}
