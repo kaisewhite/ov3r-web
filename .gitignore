@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.next/app-build-manifest.json
+.next/app-build-manifest.json
+.next/trace
+.next/server/app-paths-manifest.json
+.next/server/next-font-manifest.js
+.next/server/next-font-manifest.json
