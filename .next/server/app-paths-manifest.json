@@ -1,4 +1,5 @@
 {
   "/comprehend/projects/page": "app/comprehend/projects/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/comprehend/page": "app/comprehend/page.js"
 }
