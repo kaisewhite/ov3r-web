@@ -18,7 +18,7 @@ export interface PathSegment {
  */
 export function detectNavigationContext(pathname: string): NavigationContext {
   const pathParts = pathname.split("/");
-  
+
   if (pathname.startsWith("/comprehend/projects/") && pathParts.length > 3) {
     // Check if we're in a chat page
     if (pathParts.includes("chat")) {
@@ -45,10 +45,18 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
   // Build up the segments
   pathParts.forEach((part, index) => {
     // Handle project ID in different contexts
-    if (index === 2) { // This is the project ID position
+    if (index === 2) {
+      // This is the project ID position
       if (pathParts[index + 1] === "chat") {
-        // In chat context, link to dashboard
-        currentPath = `/${pathParts[0]}/${pathParts[1]}/${part}/dashboard`;
+        // In chat context, link to chat page
+        currentPath = `/${pathParts[0]}/${pathParts[1]}/${part}`;
+        segments.push({
+          label: part.charAt(0).toUpperCase() + part.slice(1),
+          url: currentPath,
+          isCurrent: false,
+          isClickable: true,
+        });
+        return;
       } else if (pathParts[index + 1] === "dashboard") {
         // In dashboard context, make non-clickable
         currentPath += `/${part}`;
@@ -56,7 +64,7 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
           label: part.charAt(0).toUpperCase() + part.slice(1),
           url: currentPath,
           isCurrent: false,
-          isClickable: false
+          isClickable: false,
         });
         return;
       } else {
@@ -68,7 +76,7 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
 
     // Format the label
     let label = part.charAt(0).toUpperCase() + part.slice(1);
-    
+
     // Special cases for known paths
     switch (part) {
       case "comprehend":
@@ -97,11 +105,15 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
         break;
     }
 
+    // Make the current segment non-clickable if it's the chat page
+    const isCurrentSegment = index === pathParts.length - 1;
+    const isChatPage = part === "chat" && pathParts[index - 1] && !pathParts[index + 1];
+
     segments.push({
       label,
       url: currentPath,
-      isCurrent: index === pathParts.length - 1,
-      isClickable: true
+      isCurrent: isCurrentSegment,
+      isClickable: !(isCurrentSegment && isChatPage),
     });
   });
 
