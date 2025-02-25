@@ -242,18 +242,7 @@ export default function KnowledgeBasePage() {
             </Card>
           </div>
 
-          {/* Action Card - Bottom right */}
-          <Card className="border border-gray-200 bg-gray-50 shadow-sm">
-            <CardContent className="pt-6 pb-4 px-6 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Database className="h-5 w-5 text-gray-700" />
-                <p className="text-gray-900 font-medium">Ready to enhance your AI&apos;s knowledge?</p>
-              </div>
-              <Button variant="outline" className="bg-white hover:bg-gray-50 border-gray-200">
-                Get Started
-              </Button>
-            </CardContent>
-          </Card>
+
         </div>
       </div>
     </div>

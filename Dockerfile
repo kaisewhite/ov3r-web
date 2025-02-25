@@ -36,9 +36,8 @@ COPY . .
 # Build Next.js application
 RUN npm run build
 
-# Expose the port from environment variable
-EXPOSE ${PORT}
+# Expose port 80
 EXPOSE 80
 
-# Start Next.js
-CMD ["npm", "start"]
+# Start Next.js with explicit port
+CMD ["sh", "-c", "next start -p 80"]
