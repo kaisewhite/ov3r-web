@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+/* import { useParams } from "next/navigation"; */
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -16,8 +16,8 @@ import { Database } from "lucide-react";
 import { AddDataSourceDialog } from "./components/add-data-source-dialog";
 
 export default function KnowledgeBasePage() {
-  const params = useParams();
-  const projectId = params.projectId as string;
+  /* const params = useParams(); */
+  /* const projectId = params.projectId as string; */
 
   return (
     <div className="flex-1 h-full pt-6 px-6">

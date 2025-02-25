@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+/* import { useParams } from "next/navigation"; */
 
 // Mock data for demonstration
 /* const mockProjectData = {
