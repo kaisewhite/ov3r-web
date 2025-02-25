@@ -10,29 +10,29 @@ export default function StatusSummary({
     errorCount = 0,
 }) {
     return (
-        <div className="w-full bg-gray-100 rounded-lg p-4">
+        <div className="w-full bg-gray-100 rounded-lg p-2">
             <Card className="shadow-none border-0 bg-transparent">
                 <CardContent className="p-0">
                     <div className="flex items-center justify-between divide-x divide-gray-200">
-                        <div className="flex-1 flex flex-col items-center justify-center py-3 px-4">
-                            <span className="text-2xl font-semibold text-gray-900">{sourcesCount}</span>
-                            <span className="text-sm text-gray-600">Total Sources</span>
+                        <div className="flex-1 flex flex-col items-center justify-center py-2 px-4">
+                            <span className="text-lg font-semibold text-gray-900">{sourcesCount}</span>
+                            <span className="text-xs text-gray-600">Total Sources</span>
                         </div>
-                        <div className="flex-1 flex flex-col items-center justify-center py-3 px-4">
-                            <span className="text-2xl font-semibold text-green-600">{processedCount}</span>
-                            <span className="text-sm text-gray-600">Processed</span>
+                        <div className="flex-1 flex flex-col items-center justify-center py-2 px-4">
+                            <span className="text-lg font-semibold text-green-600">{processedCount}</span>
+                            <span className="text-xs text-gray-600">Processed</span>
                         </div>
-                        <div className="flex-1 flex flex-col items-center justify-center py-3 px-4">
-                            <span className="text-2xl font-semibold text-amber-600">{pendingCount}</span>
-                            <span className="text-sm text-gray-600">Pending</span>
+                        <div className="flex-1 flex flex-col items-center justify-center py-2 px-4">
+                            <span className="text-lg font-semibold text-amber-600">{pendingCount}</span>
+                            <span className="text-xs text-gray-600">Pending</span>
                         </div>
-                        <div className="flex-1 flex flex-col items-center justify-center py-3 px-4">
-                            <span className="text-2xl font-semibold text-blue-600">{processingCount}</span>
-                            <span className="text-sm text-gray-600">Processing</span>
+                        <div className="flex-1 flex flex-col items-center justify-center py-2 px-4">
+                            <span className="text-lg font-semibold text-blue-600">{processingCount}</span>
+                            <span className="text-xs text-gray-600">Processing</span>
                         </div>
-                        <div className="flex-1 flex flex-col items-center justify-center py-3 px-4">
-                            <span className="text-2xl font-semibold text-red-600">{errorCount}</span>
-                            <span className="text-sm text-gray-600">Errors</span>
+                        <div className="flex-1 flex flex-col items-center justify-center py-2 px-4">
+                            <span className="text-lg font-semibold text-red-600">{errorCount}</span>
+                            <span className="text-xs text-gray-600">Errors</span>
                         </div>
                     </div>
                 </CardContent>

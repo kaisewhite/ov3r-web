@@ -1,6 +1,5 @@
 "use client";
 
-import { KnowledgeBaseSidebar } from "./components/knowledge-base-sidebar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
@@ -47,15 +46,7 @@ export default function KnowledgeBaseLayout({
       <div>
         <div className="px-6 pt-1 pb-6">
           <div className="flex items-center gap-4">
-            <h1 className="text-xl font-semibold">KNOWLEDGE BASE</h1>
-            <Link href={`/comprehend/projects/${params.projectId}/knowledge-base/new`}>
-              <Button>
-                <Plus className="w-4 h-4 mr-2" />
-                Add Data Source
-              </Button>
-            </Link>
-            {/* Status Summary Component */}
-            <StatusSummary 
+            <StatusSummary
               sourcesCount={statusData.sourcesCount}
               processedCount={statusData.processedCount}
               pendingCount={statusData.pendingCount}
@@ -69,12 +60,9 @@ export default function KnowledgeBaseLayout({
         </div>
       </div>
 
-      {/* Content section with sidebar */}
-      <div className="flex-1 flex">
-        <div className="w-64 border-r">
-          <KnowledgeBaseSidebar />
-        </div>
-        <div className="flex-1 min-w-0 px-6">{children}</div>
+      {/* Main content */}
+      <div className="flex-1">
+        {children}
       </div>
     </div>
   );
