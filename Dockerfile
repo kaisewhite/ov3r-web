@@ -27,7 +27,6 @@ RUN npm ci
 COPY . .
 
 # Build Next.js application
-ENV NODE_ENV=production
 ENV NEXT_PUBLIC_APP_ENV=production
 RUN npm run build
 
