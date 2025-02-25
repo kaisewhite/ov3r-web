@@ -1,28 +1,66 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { cn } from "@/app/lib/utils/cn";
-import { Moon, Sun, User, LayoutDashboard, Brain } from "lucide-react";
+import { Moon, Sun, User, LayoutDashboard, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const services = [
   {
     title: "Comprehend",
     href: "/comprehend/projects",
     description: "RAG-based system for building custom knowledge bases with AI-powered search and chat.",
-    icon: Brain,
   },
+  {
+    title: "Transform",
+    href: "/transform/projects",
+    description: "Advanced data transformation and ETL pipeline orchestration platform.",
+  },
+  {
+    title: "Analyze",
+    href: "/analyze/projects",
+    description: "AI-powered analytics and visualization tools for complex data insights.",
+  },
+  {
+    title: "Connect",
+    href: "/connect/projects",
+    description: "Integration hub for connecting and synchronizing enterprise data sources.",
+  },
+  {
+    title: "Secure",
+    href: "/secure/projects",
+    description: "Data security and compliance management with AI-driven threat detection.",
+  },
+  {
+    title: "Automate",
+    href: "/automate/projects",
+    description: "Workflow automation platform with AI-assisted process optimization.",
+  }
 ];
 
 export function GlobalHeader() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const filteredServices = services.filter(service => 
+    service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    service.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleServiceClick = async (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsOpen(false);
+    router.push(href);
+  };
   
   return (
     <header className="h-14 border-b flex items-center justify-between px-6 bg-card">
@@ -31,44 +69,48 @@ export function GlobalHeader() {
           OV3R
         </Link>
         <nav className="flex items-center space-x-4">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  showChevron={false}
-                  className={cn(
-                    "w-9 h-9 p-0 bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent",
-                    pathname.startsWith("/console")
-                      ? "text-foreground"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  <LayoutDashboard className="h-5 w-5" />
-                  <span className="sr-only">Services</span>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4">
-                    {services.map((service) => (
-                      <li key={service.href}>
-                        <Link
-                          href={service.href}
-                          className="flex items-start space-x-4 rounded-md p-3 hover:bg-muted"
-                        >
-                          <service.icon className="h-5 w-5 mt-0.5" />
-                          <div>
-                            <div className="text-sm font-medium mb-1">{service.title}</div>
-                            <p className="text-sm leading-snug text-muted-foreground">
-                              {service.description}
-                            </p>
-                          </div>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <Popover open={isOpen} onOpenChange={setIsOpen}>
+            <PopoverTrigger
+              className={cn(
+                "w-9 h-9 p-0 flex items-center justify-center rounded-md transition-colors hover:bg-muted",
+                pathname.startsWith("/console")
+                  ? "text-foreground"
+                  : "text-muted-foreground"
+              )}
+            >
+              <LayoutDashboard className="h-5 w-5" />
+              <span className="sr-only">Services</span>
+            </PopoverTrigger>
+            <PopoverContent className="w-[600px] p-4" align="start">
+              <div className="relative mb-4">
+                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  placeholder="Search services..."
+                  className="pl-8"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <div className={cn(
+                "grid gap-2",
+                searchQuery ? "grid-cols-1" : "grid-cols-2 gap-4"
+              )}>
+                {filteredServices.map((service) => (
+                  <a
+                    key={service.href}
+                    href={service.href}
+                    onClick={(e) => handleServiceClick(service.href, e)}
+                    className="block rounded-md p-3 hover:bg-muted"
+                  >
+                    <div className="text-sm font-medium mb-1">{service.title}</div>
+                    <p className="text-sm leading-snug text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </PopoverContent>
+          </Popover>
         </nav>
       </div>
       <div className="flex items-center space-x-2">

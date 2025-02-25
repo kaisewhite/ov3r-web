@@ -1,8 +1,10 @@
 {
+  "/console/home/page": "app/console/home/page.js",
+  "/comprehend/projects/page": "app/comprehend/projects/page.js",
+  "/comprehend/page": "app/comprehend/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
   "/comprehend/projects/[projectId]/knowledge-base/page": "app/comprehend/projects/[projectId]/knowledge-base/page.js",
-  "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js",
-  "/comprehend/projects/[projectId]/chat/[id]/page": "app/comprehend/projects/[projectId]/chat/[id]/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/comprehend/projects/page": "app/comprehend/projects/page.js"
+  "/comprehend/projects/[projectId]/knowledge-base/new/page": "app/comprehend/projects/[projectId]/knowledge-base/new/page.js"
 }

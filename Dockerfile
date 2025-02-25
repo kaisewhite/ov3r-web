@@ -21,7 +21,7 @@ ENV DEFAULT_CACHE_TTL='3600'
 
 # App Configuration
 ENV NODE_ENV='dev'
-ENV PORT='5005'
+ENV PORT=3000
 
 # Create app directory
 WORKDIR /app
@@ -36,8 +36,8 @@ COPY . .
 # Build Next.js application
 RUN npm run build
 
-# Expose the port Next.js runs on
-EXPOSE 3000
+# Expose the port from environment variable
+EXPOSE ${PORT}
 EXPOSE 80
 
 # Start Next.js
