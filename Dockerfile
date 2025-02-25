@@ -20,7 +20,7 @@ ENV REDIS_CACHE_HOST_ENDPOINT=''
 ENV DEFAULT_CACHE_TTL='3600'
 
 # App Configuration
-ENV NODE_ENV='dev'
+ENV NODE_ENV=''
 ENV PORT=80
 
 # Create app directory
