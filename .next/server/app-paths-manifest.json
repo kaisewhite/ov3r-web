@@ -7,5 +7,9 @@
   "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
   "/comprehend/projects/[projectId]/knowledge-base/page": "app/comprehend/projects/[projectId]/knowledge-base/page.js",
   "/comprehend/projects/[projectId]/knowledge-base/new/page": "app/comprehend/projects/[projectId]/knowledge-base/new/page.js",
-  "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js"
+  "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js",
+  "/comprehend/projects/[projectId]/settings/page": "app/comprehend/projects/[projectId]/settings/page.js",
+  "/comprehend/projects/[projectId]/knowledge-base/text/page": "app/comprehend/projects/[projectId]/knowledge-base/text/page.js",
+  "/comprehend/projects/[projectId]/knowledge-base/documents/page": "app/comprehend/projects/[projectId]/knowledge-base/documents/page.js",
+  "/comprehend/projects/[projectId]/knowledge-base/links/page": "app/comprehend/projects/[projectId]/knowledge-base/links/page.js"
 }
