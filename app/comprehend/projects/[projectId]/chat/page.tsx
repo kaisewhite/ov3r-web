@@ -39,7 +39,7 @@ export default function ChatPage() {
     router.push(`/comprehend/projects/${projectId}/chat/${chatId}`);
   };
 
-  const handleExampleClick = (example: string) => {
+  const handleExampleClick = () => {
     handleSendMessage();
   };
 
@@ -72,7 +72,7 @@ export default function ChatPage() {
                       <button
                         key={i}
                         className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors text-sm"
-                        onClick={() => handleExampleClick(example)}
+                        onClick={() => handleExampleClick()}
                       >
                         {example}
                       </button>

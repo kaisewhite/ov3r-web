@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/app/lib/utils/cn";
@@ -83,7 +83,6 @@ type PageParams = {
 }
 
 export default function KnowledgeBasePage() {
-  const router = useRouter();
   const params = useParams<PageParams>();
   const projectId = params.projectId;
 

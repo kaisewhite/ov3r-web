@@ -2,5 +2,7 @@
   "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
   "/comprehend/projects/[projectId]/knowledge-base/page": "app/comprehend/projects/[projectId]/knowledge-base/page.js",
   "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js",
-  "/comprehend/projects/[projectId]/chat/[id]/page": "app/comprehend/projects/[projectId]/chat/[id]/page.js"
+  "/comprehend/projects/[projectId]/chat/[id]/page": "app/comprehend/projects/[projectId]/chat/[id]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/comprehend/projects/page": "app/comprehend/projects/page.js"
 }
