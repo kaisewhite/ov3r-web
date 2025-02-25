@@ -12,7 +12,6 @@ ENV PGDATABASE=''
 ENV S3_BUCKET_NAME=''
 ENV REGION='us-east-1'
 
-
 # Redis Configuration
 ENV REDIS_CACHE_HOST_ENDPOINT=''
 ENV DEFAULT_CACHE_TTL='3600'
@@ -27,10 +26,9 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# App Configuration
-ENV NODE_ENV='production'
-
 # Build Next.js application
+ENV NODE_ENV=production
+ENV NEXT_PUBLIC_APP_ENV=production
 RUN npm run build
 
 # Expose port 80
