@@ -35,74 +35,9 @@ const mockProjectData = {
 };
 
 export default function ProjectDashboard() {
-  const params = useParams();
-  const projectId = params.projectId as string;
-  const project = mockProjectData[projectId as keyof typeof mockProjectData];
-
-  if (!project) {
-    return (
-      <div className="text-center py-12">
-        <h2 className="text-xl font-semibold">Project not found</h2>
-      </div>
-    );
-  }
-
   return (
-    <div className="max-w-[1600px] mx-auto space-y-8">
-      <div>
-        <h1 className="text-2xl font-semibold mb-2">{project.name}</h1>
-        <p className="text-sm text-muted-foreground">
-          Project dashboard and overview
-        </p>
-      </div>
-
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {Object.entries(project.stats).map(([key, value]) => (
-          <div key={key} className="rounded-lg border bg-card p-6">
-            <div className="text-sm font-medium text-muted-foreground">
-              {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1")}
-            </div>
-            <div className="text-2xl font-semibold mt-2">{value}</div>
-          </div>
-        ))}
-      </div>
-
-      {/* Recent Documents */}
-      <div>
-        <h2 className="text-lg font-semibold mb-4">Recent Documents</h2>
-        <div className="rounded-lg border divide-y bg-card">
-          {project.recentDocuments.map((doc) => (
-            <div
-              key={doc.name}
-              className="flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <div className="text-sm font-medium">{doc.name}</div>
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Added {doc.added}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div>
-        <h2 className="text-lg font-semibold mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <button className="flex items-center justify-center rounded-lg border bg-card p-6 hover:border-primary transition-colors">
-            Upload Documents
-          </button>
-          <button className="flex items-center justify-center rounded-lg border bg-card p-6 hover:border-primary transition-colors">
-            Start Chat
-          </button>
-          <button className="flex items-center justify-center rounded-lg border bg-card p-6 hover:border-primary transition-colors">
-            Configure Settings
-          </button>
-        </div>
-      </div>
+    <div className="flex-1 h-full">
+      <h1 className="text-xl font-semibold">DASHBOARD</h1>
     </div>
   );
 }
