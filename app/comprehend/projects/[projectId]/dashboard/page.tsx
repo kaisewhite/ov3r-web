@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 
 // Mock data for demonstration
-const mockProjectData = {
+/* const mockProjectData = {
   "legal-Research": {
     name: "Legal Research Assistant",
     stats: {
@@ -32,7 +32,7 @@ const mockProjectData = {
       { name: "Research Protocol 2024.pdf", added: "2024-02-21" },
     ],
   },
-};
+}; */
 
 export default function ProjectDashboard() {
   return (

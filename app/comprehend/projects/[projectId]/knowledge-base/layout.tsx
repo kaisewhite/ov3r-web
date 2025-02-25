@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
 import { useParams, usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator"
 import StatusSummary from "./components/status-summary";
@@ -12,7 +9,7 @@ export default function KnowledgeBaseLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const params = useParams();
+  /* const params = useParams(); */
   const pathname = usePathname();
   const isNewPage = pathname.endsWith('/new');
 

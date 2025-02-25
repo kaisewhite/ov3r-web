@@ -1,22 +1,18 @@
 "use client";
 
-import React from "react";
 import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
-import Link from "next/link";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Database, Search, FileText, Globe, HelpCircle, Link as LinkIcon, Type } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Database } from "lucide-react";
 import { AddDataSourceDialog } from "./components/add-data-source-dialog";
 
 export default function KnowledgeBasePage() {
@@ -59,7 +55,7 @@ export default function KnowledgeBasePage() {
                       <TableCell className="font-medium">DOC001</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1.5">
-                          <FileText className="h-4 w-4 text-gray-600" />
+                          <Database className="h-4 w-4 text-gray-600" />
                           <span>Document</span>
                         </div>
                       </TableCell>
@@ -67,7 +63,6 @@ export default function KnowledgeBasePage() {
                       <TableCell>
                         <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 text-amber-700">
                           Pending
-                          <HelpCircle className="w-4 h-4 ml-2 text-gray-500" />
                         </div>
                       </TableCell>
                       <TableCell>Feb 25, 2025</TableCell>
@@ -86,7 +81,7 @@ export default function KnowledgeBasePage() {
                       <TableCell className="font-medium">LINK001</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1.5">
-                          <LinkIcon className="h-4 w-4 text-gray-600" />
+                          <Database className="h-4 w-4 text-gray-600" />
                           <span>Link</span>
                         </div>
                       </TableCell>
@@ -112,7 +107,7 @@ export default function KnowledgeBasePage() {
                       <TableCell className="font-medium">TXT001</TableCell>
                       <TableCell>
                         <div className="flex items-center gap-1.5">
-                          <Type className="h-4 w-4 text-gray-600" />
+                          <Database className="h-4 w-4 text-gray-600" />
                           <span>Text</span>
                         </div>
                       </TableCell>
@@ -139,7 +134,7 @@ export default function KnowledgeBasePage() {
                         <TableCell className="font-medium">{`DOC00${i + 4}`}</TableCell>
                         <TableCell>
                           <div className="flex items-center gap-1.5">
-                            <FileText className="h-4 w-4 text-gray-600" />
+                            <Database className="h-4 w-4 text-gray-600" />
                             <span>Document</span>
                           </div>
                         </TableCell>
@@ -175,22 +170,21 @@ export default function KnowledgeBasePage() {
                 <Database className="h-6 w-6 text-gray-700" />
                 <CardTitle className="text-xl text-gray-900">What is the Knowledge Base?</CardTitle>
               </div>
-              <CardDescription className="text-base text-gray-600">
+              <p className="text-base text-gray-600">
                 Learn about the Knowledge Base and how it works.
-              </CardDescription>
+              </p>
             </CardHeader>
             <CardContent className="pt-4">
               <p className="text-gray-700 text-sm leading-relaxed">
-                The Knowledge Base is where you upload information that the AI uses to generate responses to user queries.
-                You can add data sources such as websites, webpages, documents, texts, and FAQs.
+                The Knowledge Base is where you&apos;ll find all your AI&apos;s training data. You can add data from various sources like &quot;Website&quot;, &quot;Documents&quot;, &quot;Text&quot;, and more.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed mt-4">
                 When a user asks a question, the AI searches the Knowledge Base for relevant information and
                 returns the best answer based on the data it finds.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed mt-4 font-medium">
-                If your chatbot's "Response Source" is set to "Knowledge Base",
-                it's essential to populate it with information for the AI to use.
+                If your chatbot&apos;s &quot;Response Source&quot; is set to &quot;Knowledge Base&quot;,
+                it&apos;s essential to populate it with information for the AI to use.
               </p>
             </CardContent>
           </Card>
@@ -200,7 +194,7 @@ export default function KnowledgeBasePage() {
             <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-gray-600" />
+                  <Database className="h-5 w-5 text-gray-600" />
                   <CardTitle className="text-lg text-gray-900">Website URL</CardTitle>
                 </div>
               </CardHeader>
@@ -213,7 +207,7 @@ export default function KnowledgeBasePage() {
             <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-2">
-                  <FileText className="h-5 w-5 text-gray-600" />
+                  <Database className="h-5 w-5 text-gray-600" />
                   <CardTitle className="text-lg text-gray-900">Documents</CardTitle>
                 </div>
               </CardHeader>
@@ -226,7 +220,7 @@ export default function KnowledgeBasePage() {
             <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-2">
-                  <Type className="h-5 w-5 text-gray-600" />
+                  <Database className="h-5 w-5 text-gray-600" />
                   <CardTitle className="text-lg text-gray-900">Text</CardTitle>
                 </div>
               </CardHeader>
@@ -238,9 +232,7 @@ export default function KnowledgeBasePage() {
             <Card className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-gray-600">
-                    <path d="M21 12a9 9 0 0 0-9-9m9 9a9 9 0 0 1-9 9m9-9H3m9-9v18" />
-                  </svg>
+                  <Database className="h-5 w-5 text-gray-600" />
                   <CardTitle className="text-lg text-gray-900">Sitemap URL</CardTitle>
                 </div>
               </CardHeader>
@@ -254,8 +246,8 @@ export default function KnowledgeBasePage() {
           <Card className="border border-gray-200 bg-gray-50 shadow-sm">
             <CardContent className="pt-6 pb-4 px-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Search className="h-5 w-5 text-gray-700" />
-                <p className="text-gray-900 font-medium">Ready to enhance your AI's knowledge?</p>
+                <Database className="h-5 w-5 text-gray-700" />
+                <p className="text-gray-900 font-medium">Ready to enhance your AI&apos;s knowledge?</p>
               </div>
               <Button variant="outline" className="bg-white hover:bg-gray-50 border-gray-200">
                 Get Started

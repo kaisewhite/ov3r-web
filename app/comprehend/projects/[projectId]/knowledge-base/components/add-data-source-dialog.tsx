@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, FileText, Globe, List, Plus, Type, Upload } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 type DataSourceType = "website" | "sitemap" | "url-list" | "document" | "text";
