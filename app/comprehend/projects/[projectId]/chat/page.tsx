@@ -33,14 +33,14 @@ export default function ChatPage() {
   const { projectId } = useParams();
   const router = useRouter();
 
-  const handleSendMessage = (content: string, attachments: File[]) => {
+  const handleSendMessage = () => {
     // Generate a new chat ID and redirect to it
     const chatId = Date.now().toString();
     router.push(`/comprehend/projects/${projectId}/chat/${chatId}`);
   };
 
   const handleExampleClick = (example: string) => {
-    handleSendMessage(example, []);
+    handleSendMessage();
   };
 
   return (

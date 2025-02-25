@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { cn } from "@/lib/utils";
 import {
   Globe,
   FileText,
@@ -18,8 +17,6 @@ import {
   HelpCircle,
   Webhook,
   ChevronRight,
-  AlertCircle,
-  Plus,
   ArrowLeft,
 } from "lucide-react";
 

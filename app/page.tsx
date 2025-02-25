@@ -1,49 +1,32 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl mx-auto py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Welcome to OV3R
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          A comprehensive ecosystem of advanced tools and services for data processing, AI, and automation
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Comprehend Service Card */}
-        <div className="group relative overflow-hidden rounded-lg border p-6 hover:border-primary transition-colors">
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Comprehend</h3>
-            <p className="text-sm text-muted-foreground">
-              Advanced RAG system for creating and querying custom knowledge bases
-            </p>
-          </div>
-          <ul className="text-sm space-y-2 mb-6">
-            <li>✓ Document upload and web crawling</li>
-            <li>✓ Smart content transformation</li>
-            <li>✓ AI-powered chatbot interface</li>
-          </ul>
-          <a
-            href="/comprehend/projects"
-            className="inline-flex items-center text-sm font-medium text-primary hover:underline"
-          >
-            Get Started →
-          </a>
-        </div>
-
-        {/* Future Service Cards */}
-        <div className="group relative overflow-hidden rounded-lg border p-6 bg-muted/50">
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Coming Soon</h3>
-            <p className="text-sm text-muted-foreground">
-              More powerful services are on the way
-            </p>
-          </div>
-        </div>
+      <div className="relative flex place-items-center">
+        <h1 className="text-4xl font-bold">OV3R Web Interface</h1>
       </div>
-    </div>
+
+      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+        <Link href="/comprehend/projects" className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+          <h2 className="mb-3 text-2xl font-semibold">
+            Projects{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            View and manage your projects
+          </p>
+        </Link>
+      </div>
+    </main>
   );
 }

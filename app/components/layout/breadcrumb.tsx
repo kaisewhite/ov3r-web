@@ -20,7 +20,7 @@ export function Breadcrumb() {
             OV3R
           </Link>
         </li>
-        {segments.map((segment, index) => (
+        {segments.map((segment) => (
           <li key={segment.url} className="flex items-center space-x-2">
             <ChevronRight className="h-4 w-4 text-muted-foreground" />
             {segment.isClickable === false ? (

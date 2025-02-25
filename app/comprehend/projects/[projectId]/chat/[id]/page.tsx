@@ -28,7 +28,8 @@ const mockConversation = [
 ];
 
 export default function ChatPage() {
-  const { projectId, id } = useParams();
+  const params = useParams();
+  const projectId = params.projectId;
 
   const handleSendMessage = (content: string, attachments: File[]) => {
     // TODO: Implement sending message

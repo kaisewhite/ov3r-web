@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/app/lib/utils/cn";
@@ -77,8 +77,15 @@ const getStatusColor = (status: string) => {
   }
 };
 
-export default function KnowledgeBasePage({ params }: { params: { projectId: string } }) {
-  const { projectId } = React.use(params);
+type PageParams = {
+  projectId: string;
+  [key: string]: string | string[];
+}
+
+export default function KnowledgeBasePage() {
+  const router = useRouter();
+  const params = useParams<PageParams>();
+  const projectId = params.projectId;
 
   return (
     <div className="max-w-[1600px] mx-auto space-y-8">
