@@ -6,5 +6,6 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/comprehend/projects/[projectId]/dashboard/page": "app/comprehend/projects/[projectId]/dashboard/page.js",
   "/comprehend/projects/[projectId]/knowledge-base/page": "app/comprehend/projects/[projectId]/knowledge-base/page.js",
-  "/comprehend/projects/[projectId]/knowledge-base/new/page": "app/comprehend/projects/[projectId]/knowledge-base/new/page.js"
+  "/comprehend/projects/[projectId]/knowledge-base/new/page": "app/comprehend/projects/[projectId]/knowledge-base/new/page.js",
+  "/comprehend/projects/[projectId]/chat/page": "app/comprehend/projects/[projectId]/chat/page.js"
 }
