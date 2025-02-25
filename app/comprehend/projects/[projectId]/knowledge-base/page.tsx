@@ -12,17 +12,7 @@ export default function KnowledgeBasePage() {
 
   return (
     <div className="flex-1 h-full">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-xl font-semibold">KNOWLEDGE BASE</h1>
-        <div>
-          <Link href={`/comprehend/projects/${projectId}/knowledge-base/new`}>
-            <Button>
-              <Plus className="w-4 h-4 mr-2" />
-              Add Data Source
-            </Button>
-          </Link>
-        </div>
-      </div>
+      <h2 className="text-lg text-muted-foreground">Select a category from the sidebar</h2>
     </div>
   );
 }
