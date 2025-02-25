@@ -31,8 +31,9 @@ export function AppLayout({ children }: AppLayoutProps) {
         {context === "PROJECT" && projectId && <ProjectSidebar projectId={projectId} />}
         <div className="flex-1 overflow-auto">
           <div className={cn(
-            "h-full",
-            pathname.includes("/chat") ? "h-[calc(100vh-6rem)]" : "container py-6 px-8"
+            "h-full py-6",
+            pathname.includes("/chat") ? "h-[calc(100vh-6rem)]" : 
+            pathname.includes("/knowledge-base") || pathname.includes("/dashboard") || pathname.includes("/settings") ? "" : "container px-8"
           )}>
             {children}
           </div>
