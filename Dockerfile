@@ -21,7 +21,7 @@ ENV DEFAULT_CACHE_TTL='3600'
 
 # App Configuration
 ENV NODE_ENV='dev'
-ENV PORT=3000
+ENV PORT=80
 
 # Create app directory
 WORKDIR /app
