@@ -11,17 +11,11 @@ ENV PGDATABASE=''
 
 ENV S3_BUCKET_NAME=''
 ENV REGION='us-east-1'
-# OpenAI Configuration
-ENV OPENAI_API_KEY=''
-ENV OPEN_AI_MODEL_NAME='gpt-3.5-turbo'
+
 
 # Redis Configuration
 ENV REDIS_CACHE_HOST_ENDPOINT=''
 ENV DEFAULT_CACHE_TTL='3600'
-
-# App Configuration
-ENV NODE_ENV='production'
-ENV PORT=80
 
 # Create app directory
 WORKDIR /app
@@ -33,11 +27,15 @@ RUN npm ci
 # Copy source code
 COPY . .
 
+# App Configuration
+ENV NODE_ENV='production'
+
 # Build Next.js application
 RUN npm run build
 
 # Expose port 80
 EXPOSE 80
 
-# Start Next.js with explicit port
-CMD ["sh", "-c", "next start -p 80"]
+# Start Next.js
+ENV PORT=80
+CMD ["node", "node_modules/.bin/next", "start", "-p", "80"]
