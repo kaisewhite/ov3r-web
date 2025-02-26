@@ -10,7 +10,7 @@ import {
   Github,
   Webhook,
   Database,
-  Link2,
+
 } from "lucide-react";
 
 interface ProjectSidebarProps {

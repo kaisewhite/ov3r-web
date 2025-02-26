@@ -1,9 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { ChevronDown, ChevronRight, Globe, Menu, Mic, MoreHorizontal, Plus, Search, Bot, Sparkles, ChevronLeft } from "lucide-react";
+import { ChevronDown, Globe, Menu, Mic, MoreHorizontal, Plus, Bot, Sparkles } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
@@ -18,11 +16,11 @@ import {
   DropdownMenuPortal,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function SpecializedBotsPage() {
-  const router = useRouter();
+  //const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [message, setMessage] = useState("");
@@ -174,7 +172,7 @@ export default function SpecializedBotsPage() {
         {/* Header */}
         <div className="h-14 border-b flex items-center px-4">
           {!isSidebarOpen && (
-            <button 
+            <button
               onClick={() => setIsSidebarOpen(true)}
               className="p-2 hover:bg-gray-100 rounded-md mr-2"
             >
