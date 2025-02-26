@@ -11,10 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import {
-  Pagination,
-  PaginationContent,
   PaginationEllipsis,
-  PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
@@ -254,21 +251,31 @@ export default function ProjectsPage() {
 
   // Generate page numbers
   const getPageNumbers = () => {
-    const pageNumbers = [];
-    const maxPagesToShow = 5;
-    let startPage = Math.max(1, currentPage - 2);
-    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-    // Adjust start page if we're near the end
-    if (endPage - startPage + 1 < maxPagesToShow) {
-      startPage = Math.max(1, endPage - maxPagesToShow + 1);
-    }
+    const delta = 2;
+    const range = [];
+    const maxPages = Math.ceil(mockProjects.length / projectsPerPage);
+    const startPage = Math.max(1, currentPage - delta);
+    const endPage = Math.min(maxPages, currentPage + delta);
 
     for (let i = startPage; i <= endPage; i++) {
-      pageNumbers.push(i);
+      range.push(i);
     }
 
-    return pageNumbers;
+    if (startPage > 2) {
+      range.unshift("...");
+    }
+    if (endPage < maxPages - 1) {
+      range.push("...");
+    }
+
+    if (startPage > 1) {
+      range.unshift(1);
+    }
+    if (endPage < maxPages) {
+      range.push(maxPages);
+    }
+
+    return range;
   };
 
   return (
@@ -280,7 +287,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Pagination info and controls */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 gap-2">
         <div className="text-sm text-muted-foreground">
           Showing {indexOfFirstProject + 1} to {Math.min(indexOfLastProject, mockProjects.length)} of {mockProjects.length} projects
         </div>
@@ -293,26 +300,26 @@ export default function ProjectsPage() {
             }}
             className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
           />
-          
-          <div className="flex items-center">
-            {getPageNumbers().map((number) => (
-              <PaginationLink
-                key={number}
-                href="#"
-                isActive={currentPage === number}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageChange(number);
-                }}
-                className="px-3 py-1"
-              >
-                {number}
-              </PaginationLink>
-            ))}
 
-            {currentPage + 2 < totalPages && (
-              <PaginationEllipsis />
-            )}
+          <div className="flex items-center gap-1">
+            {getPageNumbers().map((number, index) => (
+              typeof number === "number" ? (
+                <PaginationLink
+                  key={index}
+                  href="#"
+                  isActive={currentPage === number}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePageChange(number);
+                  }}
+                  className="px-3 py-1"
+                >
+                  {number}
+                </PaginationLink>
+              ) : (
+                <PaginationEllipsis key={index} />
+              )
+            ))}
           </div>
 
           <PaginationNext
