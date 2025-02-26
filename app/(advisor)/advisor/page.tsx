@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Globe, Menu, Mic, MoreHorizontal, Plus, Bot, Sparkles, HelpCircle, ChevronLeft } from "lucide-react";
+import { ChevronDown, Globe, Menu, MoreHorizontal, Plus, Bot, Sparkles, HelpCircle } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -127,9 +127,7 @@ export default function AdvisorPage() {
     }
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+
 
   return (
     <div className="flex h-[calc(100vh-7rem)]">
@@ -172,7 +170,7 @@ export default function AdvisorPage() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ delay: sidebarItems.length * 0.02, duration: 0.15 }}
                 >
-                  <Link 
+                  <Link
                     href="/advisor/faq"
                     className="flex items-center gap-2 px-4 py-[10px] hover:bg-neutral-200 text-[12px] text-[#8E8EA0] font-medium uppercase"
                   >
@@ -187,7 +185,7 @@ export default function AdvisorPage() {
       </motion.div>
 
       {/* Main Content Area */}
-      <motion.main 
+      <motion.main
         className="flex-1 bg-white flex flex-col"
         animate={{
           marginLeft: isSidebarOpen ? 260 : 0

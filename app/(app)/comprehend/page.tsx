@@ -1,7 +1,7 @@
 "use client";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { Brain, Search, MessageSquare, Database, FolderKanban, Bot, HelpCircle } from "lucide-react";
+import { Brain, Search, MessageSquare, Database, FolderKanban, HelpCircle } from "lucide-react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 
 
