@@ -14,19 +14,24 @@ import {
 
 const services = [
   {
-    title: "Comprehend",
-    href: "/comprehend/projects",
-    description: "RAG-based system for building custom knowledge bases with AI-powered search and chat.",
-  },
-  {
-    title: "Transform",
-    href: "/transform/projects",
-    description: "Advanced data transformation and ETL pipeline orchestration platform.",
+    title: "Advisor",
+    href: "/advisor",
+    description: "AI-powered advisory system for strategic decision making and planning.",
   },
   {
     title: "Analyze",
     href: "/analyze/projects",
     description: "AI-powered analytics and visualization tools for complex data insights.",
+  },
+  {
+    title: "Automate",
+    href: "/automate/projects",
+    description: "Workflow automation platform with AI-assisted process optimization.",
+  },
+  {
+    title: "Comprehend",
+    href: "/comprehend/projects",
+    description: "RAG-based system for building custom knowledge bases with AI-powered search and chat.",
   },
   {
     title: "Connect",
@@ -39,9 +44,9 @@ const services = [
     description: "Data security and compliance management with AI-driven threat detection.",
   },
   {
-    title: "Automate",
-    href: "/automate/projects",
-    description: "Workflow automation platform with AI-assisted process optimization.",
+    title: "Transform",
+    href: "/transform/projects",
+    description: "Advanced data transformation and ETL pipeline orchestration platform.",
   }
 ];
 

@@ -3,7 +3,7 @@
 import { GlobalHeader } from "@/app/components/layout/global-header";
 import { Breadcrumb } from "@/app/components/layout/breadcrumb";
 
-export default function SpecializedBotsLayout({
+export default function AdvisorRootLayout({
   children,
 }: {
   children: React.ReactNode;

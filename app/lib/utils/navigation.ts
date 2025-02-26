@@ -71,6 +71,12 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
 
     // Special cases for known paths
     switch (part) {
+      case "advisor":
+        label = "Advisor";
+        break;
+      case "comprehend":
+        label = "Comprehend";
+        break;
       case "help":
         label = "Help";
         break;

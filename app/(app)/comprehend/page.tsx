@@ -1,7 +1,7 @@
 "use client";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { Brain, Search, MessageSquare, Database, FolderKanban, Bot } from "lucide-react";
+import { Brain, Search, MessageSquare, Database, FolderKanban, Bot, HelpCircle } from "lucide-react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 
 
@@ -54,15 +54,15 @@ export default function ComprehendPage() {
               link={{
                 label: "Projects",
                 href: "/comprehend/projects",
-                icon: <FolderKanban className="h-4 w-4 mr-2" />
+                icon: <FolderKanban className="h-4 w-4 mr-2 text-neutral-500" />
               }}
             />
             <SidebarLink
               className="font-bold flex items-center px-4"
               link={{
-                label: "Specialized Bots",
-                href: "/comprehend/specialized-bots",
-                icon: <Bot className="h-4 w-4 mr-2" />
+                label: "FAQ",
+                href: "/comprehend/faq",
+                icon: <HelpCircle className="h-4 w-4 mr-2 text-neutral-500" />
               }}
             />
           </SidebarBody>

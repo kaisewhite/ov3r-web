@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Globe, Menu, Mic, MoreHorizontal, Plus, Bot, Sparkles } from "lucide-react";
+import { ChevronDown, Globe, Menu, Mic, MoreHorizontal, Plus, Bot, Sparkles, HelpCircle, ChevronLeft } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,9 +18,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
-export default function SpecializedBotsPage() {
-  //const router = useRouter();
+export default function AdvisorPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [message, setMessage] = useState("");
@@ -97,7 +97,7 @@ export default function SpecializedBotsPage() {
   const exampleCards = [
     {
       title: "What We Offer",
-      description: "Access specialized AI assistants trained on expert knowledge across multiple domains. Get accurate, nuanced answers to complex questions about taxes, legal matters, and more - all in one platform.",
+      description: "Access specialized AI advisors trained on expert knowledge across multiple domains. Get accurate, nuanced answers to complex questions about taxes, legal matters, and more - all in one platform.",
       icon: Bot,
       examples: [
         "What tax deductions are available for my small business?",
@@ -107,11 +107,11 @@ export default function SpecializedBotsPage() {
     },
     {
       title: "How It Works",
-      description: "Select a specialized assistant from the dropdown, ask your question, and receive domain-specific answers informed by expert knowledge. Our assistants are continually updated to provide the most current and accurate information available.",
+      description: "Select a specialized advisor from the dropdown, ask your question, and receive domain-specific answers informed by expert knowledge. Our advisors are continually updated to provide the most current and accurate information available.",
       icon: Sparkles,
       examples: [
-        "Switch to the tax assistant to analyze my deductions",
-        "Use the legal assistant to review my contract",
+        "Switch to the tax advisor to analyze my deductions",
+        "Use the legal advisor to review my contract",
         "Help me draft a privacy policy that's GDPR compliant"
       ]
     }
@@ -127,6 +127,10 @@ export default function SpecializedBotsPage() {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="flex h-[calc(100vh-7rem)]">
       {/* Left Sidebar */}
@@ -137,7 +141,7 @@ export default function SpecializedBotsPage() {
           opacity: isSidebarOpen ? 1 : 0
         }}
         transition={{ duration: 0.15 }}
-        className="bg-[#F7F7F8] border-r border-[#E5E5E5] overflow-hidden"
+        className="bg-[#F7F7F8] border-r border-[#E5E5E5] overflow-hidden fixed left-0 h-full"
       >
         <div className="w-[260px]">
           <div className="flex justify-between items-center p-4">
@@ -146,6 +150,7 @@ export default function SpecializedBotsPage() {
             </button>
             <Plus className="h-5 w-5 text-gray-600" />
           </div>
+
           <AnimatePresence>
             {isSidebarOpen && (
               <>
@@ -161,6 +166,20 @@ export default function SpecializedBotsPage() {
                     {item.text}
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ delay: sidebarItems.length * 0.02, duration: 0.15 }}
+                >
+                  <Link 
+                    href="/advisor/faq"
+                    className="flex items-center gap-2 px-4 py-[10px] hover:bg-neutral-200 text-[12px] text-[#8E8EA0] font-medium uppercase"
+                  >
+                    <HelpCircle className="h-4 w-4" />
+                    FAQ
+                  </Link>
+                </motion.div>
               </>
             )}
           </AnimatePresence>
@@ -168,7 +187,7 @@ export default function SpecializedBotsPage() {
       </motion.div>
 
       {/* Main Content Area */}
-      <main className="flex-1 bg-white flex flex-col">
+      <main className="flex-1 bg-white flex flex-col ml-[260px]">
         {/* Header */}
         <div className="h-14 border-b flex items-center px-4">
           {!isSidebarOpen && (
@@ -179,101 +198,16 @@ export default function SpecializedBotsPage() {
               <Menu className="h-5 w-5 text-gray-600" />
             </button>
           )}
-          <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-            <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-2 px-3 py-1 hover:bg-gray-100 rounded-md">
-                {selectedModel.name}
-                <ChevronDown className="w-4 h-4" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-[260px]" align="start">
-              <div className="p-2">
-                <div className="space-y-2">
-                  {primaryModels.map((model) => (
-                    <div
-                      key={model.name}
-                      className={cn(
-                        "p-3 rounded-lg cursor-pointer hover:bg-gray-100",
-                        selectedModel.name === model.name && "bg-gray-100"
-                      )}
-                      onClick={() => handleModelSelect(model)}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-medium">{model.name}</span>
-                        {selectedModel.name === model.name && (
-                          <svg
-                            className="h-4 w-4 text-blue-600"
-                            fill="none"
-                            strokeWidth="2"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M5 13l4 4L19 7" />
-                          </svg>
-                        )}
-                      </div>
-                      <p className="text-sm text-gray-600 mt-1">{model.description}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <DropdownMenuSub>
-                  <DropdownMenuSubTrigger className="w-full data-[state=open]:bg-gray-100 mt-2">
-                    <div className="flex items-center justify-between p-3 w-full">
-                      <span className="font-medium">More models</span>
-                    </div>
-                  </DropdownMenuSubTrigger>
-                  <DropdownMenuPortal>
-                    <DropdownMenuSubContent className="w-[260px] p-2">
-                      <div className="space-y-2">
-                        {additionalModels.map((model) => (
-                          <div
-                            key={model.name}
-                            className={cn(
-                              "p-3 rounded-lg cursor-pointer hover:bg-gray-100",
-                              selectedModel.name === model.name && "bg-gray-100"
-                            )}
-                            onClick={() => handleModelSelect(model)}
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className="font-medium">{model.name}</span>
-                              {selectedModel.name === model.name && (
-                                <svg
-                                  className="h-4 w-4 text-blue-600"
-                                  fill="none"
-                                  strokeWidth="2"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path d="M5 13l4 4L19 7" />
-                                </svg>
-                              )}
-                            </div>
-                            <p className="text-sm text-gray-600 mt-1">{model.description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuPortal>
-                </DropdownMenuSub>
-
-                <div className="mt-4 pt-4 border-t flex items-center justify-between p-3">
-                  <span className="font-medium">Temporary chat</span>
-                  <Switch />
-                </div>
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 px-6 py-8 overflow-y-auto">
-          <div className="max-w-4xl mx-auto space-y-8">
+        <div className="flex-1 px-6 overflow-y-auto">
+          <div className="max-w-4xl mx-auto space-y-8 pt-8">
             <div className="text-center space-y-4">
-              <h1 className="text-4xl font-bold">Your Personalized AI Research Assistant</h1>
+              <h1 className="text-4xl font-bold">Your Personalized AI Advisor</h1>
               <p className="text-xl text-muted-foreground">
-                I can help you explore and understand your knowledge base. Select a conversation
-                from the sidebar or try one of the example topics below.
+                I can help you make informed decisions across various domains. Select an advisor
+                from the dropdown or try one of the example topics below.
               </p>
             </div>
 
@@ -352,22 +286,8 @@ export default function SpecializedBotsPage() {
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </div>
-
-                    <div className="flex-1" />
-
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-8 w-8 rounded-lg hover:bg-zinc-700 text-zinc-300"
-                    >
-                      <Mic className="h-4 w-4" />
-                    </Button>
                   </div>
                 </div>
-
-                <p className="text-xs text-center text-muted-foreground">
-                  Press Enter to send, Shift + Enter for new line
-                </p>
               </div>
             </div>
           </div>
