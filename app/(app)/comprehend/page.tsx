@@ -65,10 +65,10 @@ export default function ComprehendPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-semibold mb-6">
-              Comprehend
+              Think Smarter, Not Harder
             </h1>
             <p className="text-lg text-muted-foreground">
-              A powerful RAG-based system for building custom knowledge bases with AI-powered search and chat capabilities.
+              The ultimate tool for understanding the information that matters most to you. A powerful RAG-based system for building custom knowledge bases with AI-powered search and chat capabilities.
             </p>
           </div>
 
