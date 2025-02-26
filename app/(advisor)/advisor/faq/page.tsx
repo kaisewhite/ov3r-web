@@ -1,29 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Bot, ChevronLeft, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
-const primaryModels = [
-  {
-    name: "Tax Sage",
-    description: "Expert guidance on tax regulations and optimization",
-  },
-  {
-    name: "Legal Advisor",
-    description: "Legal analysis and compliance guidance",
-  },
-  {
-    name: "Strategy Consultant",
-    description: "Business strategy and market analysis",
-  },
-  {
-    name: "Financial Planner",
-    description: "Personal and business financial planning",
-  },
-];
 
 const faqs = [
   {
@@ -50,76 +27,20 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="flex h-[calc(100vh-7rem)]">
-      {/* Left Sidebar */}
-      <motion.div
-        initial={false}
-        animate={{
-          width: 260,
-          opacity: 1
-        }}
-        className="bg-[#F7F7F8] border-r border-[#E5E5E5] overflow-hidden h-full"
-      >
-        <div className="w-[260px]">
-          <div className="flex justify-between items-center p-4">
-            <div className="flex items-center gap-2">
-              <Bot className="h-5 w-5" />
-              <span className="font-semibold">Models</span>
-            </div>
-          </div>
-          <div className="space-y-2">
-            {/* Model Selection */}
-            <div className="px-4">
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a model" />
-                </SelectTrigger>
-                <SelectContent>
-                  {primaryModels.map((model) => (
-                    <SelectItem key={model.name} value={model.name}>
-                      {model.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            {/* FAQ Link */}
-            <div className="px-4">
-              <Link 
-                href="/advisor"
-                className="flex items-center gap-2 p-2 hover:bg-neutral-200 rounded-lg text-sm font-medium"
-              >
-                <Bot className="h-4 w-4" />
-                Chat
-              </Link>
-              <Link 
-                href="/advisor/faq"
-                className="flex items-center gap-2 p-2 hover:bg-neutral-200 rounded-lg text-sm font-medium"
-              >
-                <HelpCircle className="h-4 w-4" />
-                FAQ
-              </Link>
-            </div>
-          </div>
+    <div className="min-h-[calc(100vh-7rem)] bg-white">
+      <div className="max-w-4xl w-full px-6 mx-auto pt-12">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
+          <Accordion type="single" collapsible className="space-y-4 text-left">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="p-2">
+                <AccordionTrigger className="text-lg font-semibold">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-neutral-600 pt-2 text-left">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-      </motion.div>
-
-      {/* Main Content Area */}
-      <main className="flex-1 bg-white flex flex-col">
-        <div className="flex-1 px-6 overflow-y-auto">
-          <div className="max-w-3xl mx-auto py-8">
-            <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg p-2">
-                  <AccordionTrigger className="text-lg font-semibold">{faq.question}</AccordionTrigger>
-                  <AccordionContent className="text-neutral-600 pt-2">{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

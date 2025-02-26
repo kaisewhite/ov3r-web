@@ -187,17 +187,105 @@ export default function AdvisorPage() {
       </motion.div>
 
       {/* Main Content Area */}
-      <main className="flex-1 bg-white flex flex-col ml-[260px]">
+      <motion.main 
+        className="flex-1 bg-white flex flex-col"
+        animate={{
+          marginLeft: isSidebarOpen ? 260 : 0
+        }}
+        transition={{ duration: 0.15 }}
+      >
         {/* Header */}
         <div className="h-14 border-b flex items-center px-4">
           {!isSidebarOpen && (
-            <button
-              onClick={() => setIsSidebarOpen(true)}
-              className="p-2 hover:bg-gray-100 rounded-md mr-2"
-            >
+            <button onClick={() => setIsSidebarOpen(true)} className="mr-2">
               <Menu className="h-5 w-5 text-gray-600" />
             </button>
           )}
+          <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-2 px-3 py-1 hover:bg-gray-100 rounded-md">
+                {selectedModel.name}
+                <ChevronDown className="w-4 h-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-[260px]" align="start">
+              <div className="p-2">
+                <div className="space-y-2">
+                  {primaryModels.map((model) => (
+                    <div
+                      key={model.name}
+                      className={cn(
+                        "p-3 rounded-lg cursor-pointer hover:bg-gray-100",
+                        selectedModel.name === model.name && "bg-gray-100"
+                      )}
+                      onClick={() => handleModelSelect(model)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium">{model.name}</span>
+                        {selectedModel.name === model.name && (
+                          <svg
+                            className="h-4 w-4 text-blue-600"
+                            fill="none"
+                            strokeWidth="2"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1">{model.description}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="w-full data-[state=open]:bg-gray-100 mt-2">
+                    <div className="flex items-center justify-between p-3 w-full">
+                      <span className="font-medium">More models</span>
+                    </div>
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent className="w-[260px] p-2">
+                      <div className="space-y-2">
+                        {additionalModels.map((model) => (
+                          <div
+                            key={model.name}
+                            className={cn(
+                              "p-3 rounded-lg cursor-pointer hover:bg-gray-100",
+                              selectedModel.name === model.name && "bg-gray-100"
+                            )}
+                            onClick={() => handleModelSelect(model)}
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="font-medium">{model.name}</span>
+                              {selectedModel.name === model.name && (
+                                <svg
+                                  className="h-4 w-4 text-blue-600"
+                                  fill="none"
+                                  strokeWidth="2"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M5 13l4 4L19 7" />
+                                </svg>
+                              )}
+                            </div>
+                            <p className="text-sm text-gray-600 mt-1">{model.description}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+
+                <div className="mt-4 pt-4 border-t flex items-center justify-between p-3">
+                  <span className="font-medium">Temporary chat</span>
+                  <Switch />
+                </div>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Main Content */}
@@ -292,7 +380,7 @@ export default function AdvisorPage() {
             </div>
           </div>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 }

@@ -1,7 +1,5 @@
 "use client";
 
-import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { FolderKanban, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
@@ -29,37 +27,15 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <div className="flex h-screen">
-      <div className="w-64 border-r">
-        <Sidebar>
-          <SidebarBody>
-            <SidebarLink
-              className="font-bold flex items-center px-4"
-              link={{
-                label: "Projects",
-                href: "/comprehend/projects",
-                icon: <FolderKanban className="h-4 w-4 mr-2 text-neutral-500" />
-              }}
-            />
-            <SidebarLink
-              className="font-bold flex items-center px-4"
-              link={{
-                label: "FAQ",
-                href: "/comprehend/faq",
-                icon: <HelpCircle className="h-4 w-4 mr-2 text-neutral-500" />
-              }}
-            />
-          </SidebarBody>
-        </Sidebar>
-      </div>
-      <div className="flex-1 p-8">
-        <div className="max-w-3xl mx-auto">
+    <div className="min-h-[calc(100vh-7rem)] bg-white">
+      <div className="max-w-4xl w-full px-6 mx-auto pt-12">
+        <div className="text-center">
           <h1 className="text-3xl font-bold mb-8">Frequently Asked Questions</h1>
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4 text-left">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg p-2">
+              <AccordionItem key={index} value={`item-${index}`} className="p-2">
                 <AccordionTrigger className="text-lg font-semibold">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-neutral-600 pt-2">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-neutral-600 pt-2 text-left">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
