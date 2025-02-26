@@ -47,40 +47,38 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
     // Handle project ID in different contexts
     if (index === 2) {
       // This is the project ID position
+      const projectId = part;
       currentPath += `/${part}`;
       segments.push({
-        label: part.charAt(0).toUpperCase() + part.slice(1),
-        url: `${currentPath}/dashboard`,  // Always link to dashboard
+        label: projectId.charAt(0).toUpperCase() + projectId.slice(1),
+        url: `${currentPath}/knowledge-base`,  // Always link to knowledge-base
         isCurrent: false,
         isClickable: true,
       });
       return;
     }
 
-    // Skip adding the dashboard segment if we're on a dashboard page
+    // Skip adding the knowledge-base segment if we're on a knowledge-base page
     // since it's already handled by the project ID segment
-    if (part === "dashboard" && index === 3) {
+    if (part === "knowledge-base" && index === 3) {
       return;
     }
 
     currentPath += `/${part}`;
 
     // Format the label
-    let label = part.charAt(0).toUpperCase() + part.slice(1);
+    let label = part;
 
     // Special cases for known paths
     switch (part) {
-      case "comprehend":
-        label = "Comprehend";
+      case "help":
+        label = "Help";
         break;
-      case "projects":
-        label = "Projects";
+      case "knowledge-base":
+        label = "Knowledge Base";
         break;
       case "chat":
         label = "Chat";
-        break;
-      case "conversations":
-        label = "Conversations";
         break;
       case "settings":
         label = "Settings";
@@ -88,11 +86,8 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
       case "integrations":
         label = "Integrations";
         break;
-      case "help":
-        label = "Help";
-        break;
-      case "dashboard":
-        label = "Dashboard";
+      case "github":
+        label = "GitHub";
         break;
     }
 

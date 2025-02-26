@@ -50,7 +50,7 @@ export default function ChatPage() {
         <div className="flex-1 px-6 py-8 overflow-y-auto">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="text-center space-y-4">
-              <h1 className="text-4xl font-bold">Welcome to Your AI Assistant</h1>
+              <h1 className="text-4xl font-bold">Your Personalized AI Research Assistant</h1>
               <p className="text-xl text-muted-foreground">
                 I can help you explore and understand your knowledge base. Select a conversation
                 from the sidebar or try one of the example topics below.

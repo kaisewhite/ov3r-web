@@ -4,14 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/app/lib/utils/cn";
 import {
-  LayoutDashboard,
+  HelpCircle,
   MessageSquare,
   Settings,
-  Puzzle,
-  HelpCircle,
   Github,
   Webhook,
   Database,
+  Link2,
 } from "lucide-react";
 
 interface ProjectSidebarProps {
@@ -19,17 +18,15 @@ interface ProjectSidebarProps {
 }
 
 const projectNavItems = [
-  { label: "Dashboard", href: "dashboard", icon: LayoutDashboard },
   { label: "Knowledge Base", href: "knowledge-base", icon: Database },
   { label: "Chat", href: "chat", icon: MessageSquare },
   { label: "Settings", href: "settings", icon: Settings },
   {
     label: "Integrations",
     href: "integrations",
-    icon: Puzzle,
-    subItems: [
-      { label: "GitHub", href: "github", icon: Github },
-      { label: "API", href: "api", icon: Webhook },
+    icon: Webhook,
+    children: [
+      { label: "GitHub", href: "integrations/github", icon: Github },
     ],
   },
   { label: "Help", href: "help", icon: HelpCircle },
@@ -56,9 +53,9 @@ export function ProjectSidebar({ projectId }: ProjectSidebarProps) {
               <item.icon className="h-4 w-4" />
               {item.label}
             </Link>
-            {item.subItems && (
+            {item.children && (
               <div className="ml-4 mt-1 space-y-1">
-                {item.subItems.map((subItem) => (
+                {item.children.map((subItem) => (
                   <Link
                     key={subItem.href}
                     href={`${basePath}/${item.href}/${subItem.href}`}

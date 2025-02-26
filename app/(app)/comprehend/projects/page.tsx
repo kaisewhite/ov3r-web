@@ -349,7 +349,7 @@ export default function ProjectsPage() {
               <TableRow
                 key={project.id}
                 className="cursor-pointer hover:bg-muted/50"
-                onClick={() => router.push(`/comprehend/projects/${project.id}/dashboard`)}
+                onClick={() => router.push(`/comprehend/projects/${project.id}/knowledge-base`)}
               >
                 <TableCell className="font-medium">{project.name}</TableCell>
                 <TableCell>{project.description}</TableCell>

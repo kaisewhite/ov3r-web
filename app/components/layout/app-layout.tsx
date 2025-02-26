@@ -33,7 +33,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           <div className={cn(
             "h-full py-6",
             pathname.includes("/chat") ? "h-[calc(100vh-6rem)]" : 
-            pathname.includes("/knowledge-base") || pathname.includes("/dashboard") || pathname.includes("/settings") ? "" : "container px-8"
+            pathname.includes("/knowledge-base") || pathname.includes("/settings") ? "" : "container px-8"
           )}>
             {children}
           </div>
