@@ -3,6 +3,9 @@ const nextConfig = {
   env: {
     PORT: process.env.PORT,
   },
+  images: {
+    domains: ['assets.aceternity.com'],
+  },
   serverRuntimeConfig: {
     // Will only be available on the server side
   },

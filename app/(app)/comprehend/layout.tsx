@@ -9,7 +9,7 @@ export default function ComprehendLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-full">
+    <div className="h-full flex-1 flex flex-col">
       {children}
     </div>
   );
