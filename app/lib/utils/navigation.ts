@@ -25,7 +25,7 @@ export function detectNavigationContext(pathname: string): NavigationContext {
       return "CHAT";
     }
     return "PROJECT";
-  } else if (pathname.startsWith("/comprehend/")) {
+  } else if (pathname === "/comprehend" || pathname === "/comprehend/projects") {
     return "SERVICE";
   }
   return "NONE";
@@ -51,7 +51,7 @@ export function parsePathToSegments(pathname: string): PathSegment[] {
       currentPath += `/${part}`;
       segments.push({
         label: projectId.charAt(0).toUpperCase() + projectId.slice(1),
-        url: `${currentPath}/knowledge-base`,  // Always link to knowledge-base
+        url: `${currentPath}/knowledge-base`, // Always link to knowledge-base
         isCurrent: false,
         isClickable: true,
       });
