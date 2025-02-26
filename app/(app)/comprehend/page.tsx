@@ -1,12 +1,12 @@
 "use client";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { Brain, Search, MessageSquare, Database } from "lucide-react";
+import { Brain, Search, MessageSquare, Database, FolderKanban } from "lucide-react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { IconLayoutDashboard } from "@tabler/icons-react";
+
 
 const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
+  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent"></div>
 );
 
 const items = [
@@ -42,20 +42,26 @@ const items = [
 
 export default function ComprehendPage() {
   return (
-    <div className="flex h-full">
-      <Sidebar animate={false}>
-        <SidebarBody>
-          <SidebarLink
-            className="font-bold"
-            link={{
-              label: "Projects",
-              href: "/comprehend/projects"
-            }}
-          />
-        </SidebarBody>
-      </Sidebar>
+    <div className="flex h-full relative -mx-8 -mt-6">
+      <div className="fixed left-0 top-[6.5rem] h-[calc(100vh-6.5rem)] w-64 border-r border-neutral-200 dark:border-neutral-700 bg-muted/5">
+        <Sidebar animate={false}>
+          <SidebarBody>
+            <div className="px-4 py-4">
+              <h2 className="text-2xl font-semibold tracking-tight">Comprehend</h2>
+            </div>
+            <SidebarLink
+              className="font-bold flex items-center px-4"
+              link={{
+                label: "Projects",
+                href: "/comprehend/projects",
+                icon: <FolderKanban className="h-4 w-4 mr-2" />
+              }}
+            />
+          </SidebarBody>
+        </Sidebar>
+      </div>
 
-      <div className="flex-1 p-8 overflow-auto">
+      <div className="flex-1 p-10 overflow-auto ml-64">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-semibold mb-6">
